@@ -2,6 +2,7 @@ package mk.finki.ukim.wp.lab.service.impl;
 
 import mk.finki.ukim.wp.lab.model.Album;
 import mk.finki.ukim.wp.lab.repository.AlbumRepository;
+import mk.finki.ukim.wp.lab.repository.InMemoryAlbumRepository;
 import mk.finki.ukim.wp.lab.service.AlbumService;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,6 @@ public class AlbumServiceImplementation implements AlbumService {
 
     @Override
     public Album findById(Long albumId) {
-        return repository.findById(albumId);
+        return repository.findById(albumId).orElse(null);
     }
 }

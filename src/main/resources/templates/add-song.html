@@ -7,6 +7,9 @@
 <body>
 <h1 th:text="${song != null ? 'Edit Song' : 'Add New Song'}"></h1>
 <form th:action="@{/songs/save}" method="post">
+    <!-- Hidden ID field for updates -->
+    <input type="hidden" name="id" th:value="${song != null ? song.id : ''}">
+
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" th:value="${song != null ? song.title : ''}" placeholder="Enter song title" required>
     <br/>

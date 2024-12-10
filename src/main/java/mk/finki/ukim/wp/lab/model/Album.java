@@ -1,9 +1,7 @@
 package mk.finki.ukim.wp.lab.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
@@ -11,11 +9,16 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@NoArgsConstructor
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String genre;
     private String releaseYear;
+    @OneToMany(mappedBy = "album")
     private List<Song> songs;
 
 

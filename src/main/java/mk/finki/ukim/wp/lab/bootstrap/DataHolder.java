@@ -20,10 +20,10 @@ public class DataHolder {
     public void init() {
         artists = new ArrayList<>(5);
         songs = new ArrayList<>(5);
-
-        artists.add(new Artist(new Random().nextLong(), "Bon", "Jove", "The Best"));
-        artists.add(new Artist(new Random().nextLong(), "Axl", "Rose", "The Worst"));
-        artists.add(new Artist(new Random().nextLong(), "David", "Bowie", "The Best"));
+        albums=new ArrayList<>();
+        artists.add(new Artist(new Random().nextLong(), "Bon", "Jove", "The Best", songs));
+        artists.add(new Artist(new Random().nextLong(), "Axl", "Rose", "The Worst", songs));
+        artists.add(new Artist(new Random().nextLong(), "David", "Bowie", "The Best", songs));
         Album album1=new Album(new Random().nextLong(), "Album11", "Pop", "2019", new ArrayList<>());
         Song song1 = new Song("1", "Song One", "Pop", 2021, artists, new Random().nextLong(), album1);
         Song song2 = new Song("2", "Song Two", "Rock", 2019, artists, new Random().nextLong(), album1);

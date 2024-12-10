@@ -1,17 +1,8 @@
 package mk.finki.ukim.wp.lab.repository;
 
-import mk.finki.ukim.wp.lab.bootstrap.DataHolder;
 import mk.finki.ukim.wp.lab.model.Album;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface AlbumRepository extends JpaRepository<Album, Long> {
 
-@Repository
-public class AlbumRepository {
-    public List<Album> findAll(){
-        return DataHolder.albums;
-    }
-    public Album findById(long id){
-        return DataHolder.albums.stream().filter(album -> album.getId() == id).findFirst().orElse(null);
-    }
 }
