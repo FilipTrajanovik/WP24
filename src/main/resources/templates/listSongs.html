@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
   <meta charset="utf-8">
   <title>Songs Homepage - Welcome to My Music Store</title>
@@ -22,10 +23,10 @@
       <p th:text="'Title: ' + ${song.title} + ', Genre: ' + ${song.genre} + ', Release Year: ' + ${song.releaseYear}"></p>
 
       <!-- Edit Button -->
-      <a th:href="@{'/songs/edit-form/' + ${song.id}}" style="margin-right: 10px;">Edit</a>
+      <a sec:authorize="hasRole('ADMIN')" th:href="@{'/songs/edit-form/' + ${song.id}}" style="margin-right: 10px;">Edit</a>
 
       <!-- Delete Button -->
-      <a th:href="@{'/songs/delete/' + ${song.id}}"
+      <a sec:authorize="hasRole('ADMIN')" th:href="@{'/songs/delete/' + ${song.id}}"
          onclick="return confirm('Are you sure you want to delete this song?')">Delete</a>
       <hr/>
     </div>
